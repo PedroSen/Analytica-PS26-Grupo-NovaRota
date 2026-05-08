@@ -28,8 +28,8 @@ st.markdown("""
       text-align: center;
     }
     .ehg91i91 img {
-      width: 20%;
-      min-width: 100px;
+      width: 20% !important;
+      min-width: 100px !important;
     }
 </style>
 """, unsafe_allow_html=True)
