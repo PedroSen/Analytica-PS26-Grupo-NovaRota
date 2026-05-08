@@ -184,7 +184,6 @@ def calcular_score_final(metrics, perfil):
 # ============================================================================
 # TÍTULO E INTRODUÇÃO
 # ============================================================================
-st.image("Logo_NovaRota.png")
 st.title("NovaRota - Avaliador de Rotas de Ônibus RJ")
 st.markdown("**Sistema inteligente de análise e recomendação de linhas de ônibus**")
 st.markdown("Criado por Felipe Lemos, Julio Menescal, Marina Almeida de Aguiar e Pedro Sena")
