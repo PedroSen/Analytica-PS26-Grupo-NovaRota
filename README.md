@@ -81,22 +81,8 @@ Fontes
 - Período reduzido - Projeto desenvolvido em 11 dias
 
 
-# Como Executar
-- Pré-requisitos
-- bash
-- Python 3.9+
-- pip install -r requirements.txt
-- Instalação
-- bash
-- Clone o repositório
-- git clone https://github.com/seu-usuario/novarota.git
+# Como Executar a Aplicação
+- Clone o repositório (git clone https://github.com/seu-usuario/novarota.git)
 - cd novarota
-# Instale as dependências:
-- pip install -r requirements.txt
-- Executar a Aplicação Web
-- bash
-- streamlit run app.py
-- Executar o Notebook de Análise
-- bash
-- jupyter notebook novarota_analysis.ipynb
-ou abra diretamente no Google Colab
+- Instale as dependências: pip install -r requirements.txt
+- Terminal: streamlit run app.py
