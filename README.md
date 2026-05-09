@@ -1,16 +1,15 @@
 # NovaRota - Análise Inteligente de Rotas de Ônibus no Rio de Janeiro
 
-NovaRota é um sistema inteligente de classificação e recomendação de linhas de ônibus desenvolvido durante o Processo Seletivo 2026.1 da UFRJ Analytica. O projeto integra dados de transporte público e criminalidade para ajudar usuários a escolher rotas mais seguras, confortáveis e eficientes no município do Rio de Janeiro.
+NovaRota é um sistema inteligente de classificação e recomendação de linhas de ônibus desenvolvido durante o Processo Seletivo 2026.1 da UFRJ Analytica. O projeto integra dados de transporte público e criminalidade para informar sobre rotas mais seguras, confortáveis e eficientes no município do Rio de Janeiro.
 
 🎯 Visão Geral
-O NovaRota foi desenvolvido para resolver um problema recorrente na cidade do Rio de Janeiro: a falta de informações integradas sobre segurança e qualidade no transporte público. Enquanto aplicativos tradicionais focam em tempo e custo, nosso sistema incorpora:
+O NovaRota foi desenvolvido para resolver um problema recorrente na cidade do Rio de Janeiro: a falta de informações integradas sobre segurança e qualidade no transporte público. Nosso sistema incorpora:
 
 - Dados de criminalidade próximos às rotas
 - Conforto (presença de ar-condicionado, ano da frota)
 - Eficiência (duração da viagem, número de paradas)
 - Custo (tarifa da passagem)
-
-O sistema permite que o usuário escolha seu perfil de prioridade (econômico, segurança, conforto ou balanceado) e receba recomendações personalizadas de linhas alternativas.
+- Duração das viagens
 
 💡 Motivação
 O Rio de Janeiro enfrenta desafios diários relacionados à violência urbana e à precariedade do transporte público. A maioria das soluções existentes prioriza apenas tempo de deslocamento e custo, negligenciando aspectos críticos como:
