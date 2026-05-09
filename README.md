@@ -99,4 +99,4 @@ Fontes
 - Executar o Notebook de Análise
 - bash
 - jupyter notebook novarota_analysis.ipynb
-# ou abra diretamente no Google Colab
+ou abra diretamente no Google Colab
