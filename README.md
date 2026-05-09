@@ -1,2 +1,167 @@
-# Analytica-PS26-Grupo-N
-Projeto do processo seletivo da UFRJ Analytica do Grupo N voltado para a identificação do nível de qualidade e segurança das diferentes rotas de ônibus da cidade do Rio de Janeiro.
+# NovaRota - Análise Inteligente de Rotas de Ônibus no Rio de Janeiro
+
+NovaRota é um sistema inteligente de classificação e recomendação de linhas de ônibus desenvolvido durante o Processo Seletivo 2026.1 da UFRJ Analytica. O projeto integra dados de transporte público e criminalidade para ajudar usuários a escolher rotas mais seguras, confortáveis e eficientes no município do Rio de Janeiro.
+
+Distribuição geográfica de crimes e paradas de ônibus no Rio de Janeiro
+
+📌 Índice
+Visão Geral
+
+Motivação
+
+Funcionalidades
+
+Arquitetura do Projeto
+
+Dados Utilizados
+
+Técnicas e Algoritmos
+
+Resultados
+
+Limitações
+
+Trabalhos Futuros
+
+Como Executar
+
+Estrutura do Repositório
+
+Equipe
+
+Referências
+
+🎯 Visão Geral
+O NovaRota foi desenvolvido para resolver um problema recorrente na cidade do Rio de Janeiro: a falta de informações integradas sobre segurança e qualidade no transporte público. Enquanto aplicativos tradicionais focam em tempo e custo, nosso sistema incorpora:
+
+Dados de criminalidade próximos às rotas
+
+Conforto (presença de ar-condicionado, ano da frota)
+
+Eficiência (duração da viagem, número de paradas)
+
+Custo (tarifa da passagem)
+
+O sistema permite que o usuário escolha seu perfil de prioridade (econômico, segurança, conforto ou balanceado) e receba recomendações personalizadas de linhas alternativas.
+
+💡 Motivação
+O Rio de Janeiro enfrenta desafios diários relacionados à violência urbana e à precariedade do transporte público. A maioria das soluções existentes prioriza apenas tempo de deslocamento e custo, negligenciando aspectos críticos como:
+
+Segurança durante o trajeto
+
+Qualidade dos veículos (ar-condicionado, conservação)
+
+Índices de criminalidade nas regiões atendidas
+
+O NovaRota preenche essa lacuna, oferecendo uma ferramenta que capacita o usuário a tomar decisões mais informadas sobre seu deslocamento.
+
+✨ Funcionalidades
+Funcionalidade	Descrição
+🔍 Busca por Linha	Pesquise qualquer linha de ônibus do município do Rio de Janeiro
+📊 Indicadores Multidimensionais	Visualize scores de segurança, conforto, eficiência e custo
+🎯 Perfis Personalizados	Escolha entre perfis: Econômico, Segurança, Conforto ou Balanceado
+🔄 Recomendação de Rotas Alternativas	Sugestão automática de linhas semelhantes com melhores indicadores
+📈 Ranking de Linhas por Risco	Visualize as linhas com maior incidência criminal
+🗺️ Visualização Geoespacial	Mapas interativos mostrando distribuição de crimes e paradas
+💬 Explicabilidade	Justificativas textuais para cada recomendação
+🏗️ Arquitetura do Projeto
+
+
+📊 Dados Utilizados
+Fontes
+Fonte	Descrição	Período
+SMTR / DataRio	Sistema Municipal de Transportes - rotas, paradas, viagens, tarifas	2025
+Fogo Cruzado (API)	Registros de violência armada com coordenadas geográficas	2025
+Volume de Dados
+483 rotas de ônibus analisadas
+
+27.200 viagens com dados completos
+
+4.100 ocorrências criminais associadas espacialmente
+
+Principais Variáveis
+Categoria	Variáveis
+🚨 Criminalidade	Crimes médio/máximo/mínimo por rota, % sem crime, crimes por horário (pico manhã/tarde/noite/fim de semana)
+🚏 Operacionais	Número de paradas, duração média da viagem, tarifa
+🚌 Conforto	Ano médio de fabricação da frota, presença de ar-condicionado
+🏷️ Derivadas	Cluster de risco (Baixo/Médio/Alto), score de perigo
+⚙️ Técnicas e Algoritmos
+Pré-processamento
+Limpeza e tratamento de valores ausentes
+
+Remoção de duplicatas e feeds desatualizados
+
+Normalização e padronização de variáveis
+
+Análise Geoespacial
+Buffers de 500m ao redor de cada parada para captura de crimes
+
+Buffers de 50m ao redor dos traçados LINESTRING para associação linha-parada
+
+Spatial joins com projeção métrica SIRGAS 2000 (EPSG:31983)
+
+Machine Learning
+Modelo	Técnica	Resultado
+Classificação de Risco	Regressão Supervisionada	MAE, MSE, R² para validação
+Clusterização	K-Means (Elbow Method + Silhouette)	Silhouette Score: 0.37 com K=3
+Validação	Cross-Validation (KFold)	Avaliação de generalização
+Interpretabilidade	Feature Importance	Identificação dos principais preditores
+Recomendação
+Similaridade de Jaccard entre conjuntos de paradas
+
+Scores multicritério ponderados por perfil do usuário
+
+Ranking dinâmico baseado em prioridades
+
+📈 Resultados
+Clusterização de Risco
+Cluster	Classificação	Número de Linhas
+Cluster 0	Baixo Risco	173
+Cluster 1	Médio Risco	271
+Cluster 2	Alto Risco	158
+Correlações Relevantes
+https://media/image6.png
+Correlação entre duração da viagem e número de paradas: 58%
+*Correlação entre ar-condicionado e ano de fabricação: 88%*
+
+Insights Obtidos
+Concentração de crimes ocorre principalmente entre final da tarde e início da noite
+
+Regiões específicas da cidade apresentam densidade criminal significativamente maior
+
+Veículos mais novos (alto ano de fabricação) têm maior probabilidade de ter ar-condicionado
+
+Linhas com mais paradas tendem a ter maior duração de viagem (correlação 58%)
+
+⚠️ Limitações
+Busca por linha, não por origem/destino - O sistema não realiza planejamento completo de rotas
+
+Subnotificação de crimes - Dados podem não representar totalidade das ocorrências
+
+Proximidade geográfica como proxy - Crimes próximos ≠ crimes dentro do ônibus
+
+Dados GTFS desatualizados - Necessidade de filtragem adicional
+
+Período reduzido - Projeto desenvolvido em 11 dias
+
+
+🚀 Como Executar
+Pré-requisitos
+bash
+Python 3.9+
+pip install -r requirements.txt
+Instalação
+bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/novarota.git
+cd novarota
+
+# Instale as dependências
+pip install -r requirements.txt
+Executar a Aplicação Web
+bash
+streamlit run app.py
+Executar o Notebook de Análise
+bash
+jupyter notebook novarota_analysis.ipynb
+# ou abra no Google Colab
